@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Mustafa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <h1>Dashboard Overview</h1>
+                <div class="topbar-right">
+                    <i class="fa-solid fa-bell"></i>
+                    <div class="avatar">M</div>
+                </div>
+            </header>
+
+            <div class="topbar-controls">
+                <input type="search" id="globalSearch" placeholder="Search tables, comments...">
+                <button id="exportBtn" class="filter-btn">Export CSV</button>
+            </div>
+
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon revenue"><i class="fa-solid fa-dollar-sign"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-label">Total Revenue</span>
+                        <span class="stat-value" id="totalRevenue">$48,250</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon orders"><i class="fa-solid fa-receipt"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-label">Total Orders</span>
+                        <span class="stat-value" id="totalOrders">1,240</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon views"><i class="fa-solid fa-eye"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-label">Total Views</span>
+                        <span class="stat-value" id="totalViews">89,500</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon growth"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-label">Growth Rate</span>
+                        <span class="stat-value positive" id="growthRate">+12.5%</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="table-section">
+                <div class="table-header">
+                    <h2><i class="fa-solid fa-dollar-sign"></i> Sales</h2>
+                    <div class="filter-buttons" data-table="sales">
+                        <button class="filter-btn active" data-period="today">Today</button>
+                        <button class="filter-btn" data-period="week">This Week</button>
+                        <button class="filter-btn" data-period="month">This Month</button>
+                        <button class="filter-btn" data-period="year">This Year</button>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Customer</th>
+                                <th>Product</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="salesTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="table-section">
+                <div class="table-header">
+                    <h2><i class="fa-solid fa-eye"></i> Views</h2>
+                    <div class="filter-buttons" data-table="views">
+                        <button class="filter-btn active" data-period="today">Today</button>
+                        <button class="filter-btn" data-period="week">This Week</button>
+                        <button class="filter-btn" data-period="month">This Month</button>
+                        <button class="filter-btn" data-period="year">This Year</button>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Page</th>
+                                <th>Visitors</th>
+                                <th>Bounce Rate</th>
+                                <th>Avg Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="viewsTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="table-section">
+                <div class="table-header">
+                    <h2><i class="fa-solid fa-chart-bar"></i> Revenue Breakdown</h2>
+                    <div class="filter-buttons" data-table="revenue">
+                        <button class="filter-btn active" data-period="today">Today</button>
+                        <button class="filter-btn" data-period="week">This Week</button>
+                        <button class="filter-btn" data-period="month">This Month</button>
+                        <button class="filter-btn" data-period="year">This Year</button>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Source</th>
+                                <th>Revenue</th>
+                                <th>Expenses</th>
+                                <th>Net Profit</th>
+                            </tr>
+                        </thead>
+                        <tbody id="revenueTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="comments-section">
+                <h2><i class="fa-solid fa-comments"></i> Recent Comments</h2>
+                <div class="comments-list" id="commentsList"></div>
+            </section>
+
+            <section class="chart-section">
+                <h2><i class="fa-solid fa-chart-column"></i> Monthly Overview</h2>
+                <div class="chart-container" id="chartContainer">
+                    <div class="chart-bars" id="chartBars"></div>
+                    <div class="chart-labels" id="chartLabels"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
